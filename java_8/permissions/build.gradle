@@ -1,0 +1,29 @@
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile (
+        'com.amazonaws:aws-java-sdk-s3:1.11.749',
+        'commons-io:commons-io:+'
+    )
+}
+
+task buildZip(type: Zip) {
+    from compileJava
+    from processResources
+    into('lib') {
+        from configurations.runtimeClasspath
+    }
+    archiveFileName = "get-ratings.zip"
+    destinationDirectory = file("$buildDir/deployment-package")
+}
+
+compileJava   {
+    sourceCompatibility = '1.8'
+    targetCompatibility = '1.8'
+}
+
+build.dependsOn buildZip

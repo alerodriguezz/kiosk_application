@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+  		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Sample Website</title>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+		<link rel="stylesheet" href="reset.css" />
+		<link rel="stylesheet" href="core.css" />
+		<link rel="stylesheet" href="main.css" />
+		<link rel="stylesheet" href="search.css" />
+	</head>
+	<body>
+		<section data-role="screen_backdrop">
+			<main>
+				<div class="toast" data-showing="not_showing" data-role="problem_message"></div>
+				<section data-role="request_report_wrapper">
+					<span class="button" data-action="request_report">Request a report</span>
+					<i class="material-icons">login</i>
+					<a href="javascript:void(0);">Admin Login</a>
+				</section>
+				<header>
+					<section>
+						<h1>Product Finder</h1>
+					</section>
+				</header>
+
+				<section data-role="results_outer_wrapper">
+					<h1>
+						<i class="material-icons">camera_enhance</i>
+					</h1>
+					<section data-role="results_wrapper"></section>
+				</section>
+
+
+			</main>
+		</section> <!-- end of screen backdrop -->
+		<script src="jquery.js"></script>
+		<script src="config.js"></script>
+		<script src="main.js"></script>
+		<script src="products.js"></script>
+		<script src="flex_search.js"></script>
+		<script src="search.js"></script>
+
+	</body>
+</html>

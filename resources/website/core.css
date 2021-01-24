@@ -1,0 +1,102 @@
+/*
+	start base styles
+*/
+html, 
+body{
+	height: 100%;
+	font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+	font-weight: 500;
+    line-height: 1.75;
+    text-align: center;
+}
+main{
+	text-align: left;
+	width: 880px;
+	position: relative;
+	background-color: whitesmoke;
+	border: 1px solid black;
+	margin: 24px auto 0 auto;
+	padding: 12px;
+}
+h1{
+	font-size: 42px;
+}
+h2{
+	font-size: 32px;
+}
+ol{
+	padding: 0 12px 6px 12px;
+}
+li{
+	list-style-type: disc;
+	padding-left: 12px;
+	margin: 6px;
+}
+/*
+	end base styles
+*/
+
+
+/*
+	start standard button
+*/
+span.button{
+	letter-spacing: 1.2px;
+	-webkit-tap-highlight-color: transparent;
+	user-select: none;
+    text-transform: uppercase;
+	display: inline-block;
+	border: 1px solid #434343;
+	background-color: white;
+	color: #434343;
+	padding: 6px 12px;
+	border-radius: 4px;
+	width: 278px;
+	cursor: pointer;
+	margin: 0 auto;
+	text-align: center;
+	font-size: 14px;
+}
+span.button:hover{
+	background-color: #434343;
+	color: whitesmoke;
+}
+/*
+	end standard button
+*/
+
+/*
+	start toast
+*/
+.toast{
+	z-index: 3;
+    background-color: #da1919;
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 36px 24px;
+    font-size: 24px;
+    text-align: center;
+    transition: transform 0.36s ease-in-out 0s;
+    text-transform: capitalize;
+}
+.toast[data-showing="not_showing"]{
+	transform: scale(0);
+	/*transform: translateY(-300px);*/
+}
+.toast[data-showing="showing"]{
+	transforn: scale(1);
+	/*transform: translateY(0px);*/
+}
+
+/*
+	end toast
+*/
+
+
+
+
+
+
