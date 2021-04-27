@@ -9,8 +9,8 @@ reference: https://www.coursera.org/learn/building-modern-python-applications-on
 
 <img src="kiosk.gif" width=500><br>
 
-<img src="kiosk app.png" width=500><br>
-
 <img src="kiosk app step functions.png" width=500><br>
 
 <img src="kiosk analytics.png" width=500><br>
+
+<img src="diagram.png" width=500><br>
