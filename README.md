@@ -1,14 +1,16 @@
-         ___        ______     ____ _                 _  ___  
-        / \ \      / / ___|   / ___| | ___  _   _  __| |/ _ \ 
-       / _ \ \ /\ / /\___ \  | |   | |/ _ \| | | |/ _` | (_) |
-      / ___ \ V  V /  ___) | | |___| | (_) | |_| | (_| |\__, |
-     /_/   \_\_/\_/  |____/   \____|_|\___/ \__,_|\__,_|  /_/ 
- ----------------------------------------------------------------- 
+#Building Modern Python Applications on AWS | COursera Project
+##Utilized Amazon Lambda, Congnito, IAM, Step Functions, and API Gateway to add functionality to a kiosk application. 
+
+##Building Modern Python Applications on AWS will explore how to build an API driven application using Amazon API Gateway for serverless API hosting, AWS Lambda for serverless computing, and Amazon Cognito for serverless authentication. We will follow an API driven development process and first mock up what the API will look like. We will cover all the ins and outs of the service Amazon API Gateway, and as you’ll learn- it does a lot more than just hosting an API. 
+
+reference: https://www.coursera.org/learn/building-modern-python-applications-on-aws?#about
 
 
-Hi there! Welcome to AWS Cloud9!
 
-To get started, create some files, play with the terminal,
-or visit https://docs.aws.amazon.com/console/cloud9/ for our documentation.
+<img src="kiosk.gif" width=500><br>
 
-Happy coding!
+<img src="kiosk app.png" width=500><br>
+
+<img src="kiosk app step functions.png" width=500><br>
+
+<img src="kiosk analytics.png" width=500><br>
