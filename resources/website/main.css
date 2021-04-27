@@ -1,0 +1,173 @@
+/*
+	start screen backdrop
+*/
+body{
+	overflow: hidden;
+    background-color: black;
+}
+
+/*
+	start screen backdrop
+*/
+
+/*
+	Site specific css
+*/
+[data-role="select_area_wrapper"]{
+	background-color: #dad8d8;
+	padding: 12px;
+	text-align: center;
+}
+[data-role="select_area_wrapper"] > p{
+	color: #434343;
+	padding: 12px;
+	text-align: center;
+	font-size: 20px;
+	line-height: 24px
+}
+[data-role="request_report_wrapper"]{
+    margin: 0 auto;
+    font-size: 18px;
+    color: #434343;
+    width: 90%;
+}
+
+
+/*
+ start the buttons
+*/
+span.button[data-action="get_reviews"],
+span.button[data-action="get_average_rating"]{
+	width: 180px;
+    display: inline-block;
+    margin: 14px 8px;
+}
+
+span.button[data-action="request_report"]{
+    float: right;
+    top: 12px;
+    right: -5px;
+    position: relative;
+    width: auto;
+}
+
+/*
+ end the buttons
+*/
+body{
+    background-repeat: no-repeat;
+    background-image: url(./backdrop_camera.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+
+main{
+    /*display: none;*/
+    overflow: scroll;
+    position: absolute;
+    /* background-repeat: no-repeat; */
+    /* background-size: cover; */
+    bottom: 193px;
+    left: 159px;
+    /* padding: 100px; */
+    margin: 0 auto;
+    height: 451px;
+    width: 812px;
+    /* display: none; */
+    transform: rotateX(20deg);
+    perspective-origin: center;
+    /* perspective-origin: center; */
+    z-index: -1;
+}
+[data-role="screen_backdrop"]{
+    height: 100%;
+    background-image: url(./kiosk.png);
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position-y: bottom;
+    background-position-x: 106px;
+    display: inline-block;
+    margin: 0 auto;
+    width: 1130px;
+    position: relative;
+    z-index: 2;
+}
+
+h1{
+	font-size: 42px;
+    text-align: center;
+    margin-bottom: 24px;
+}
+[data-role="results_wrapper"]{
+	/*background-color: red;*/
+	height: 372px;
+    /*overflow: scroll;*/
+}
+
+/* start reviews and rating */
+
+[data-role="rating_wrapper"]{
+    background-color: black;
+    color: white;
+    padding: 12px 24px;
+}
+[data-role="reviews_wrapper"]{
+	/*background-color: orange;*/
+}
+[data-role="reviews_wrapper"] > p{
+    margin-left: 24px;
+    color: #535353;
+    font-size: 22px;
+}
+/* endreviews and rating */
+
+/*
+ start the brading
+*/
+[data-role="side_branding"]{
+    /*background-color: red;*/
+    width: 300px;
+    float: right;
+    height: 150px;
+}
+[data-role="side_branding"] > svg{
+	background-color: pink;
+}
+
+[data-role="request_report_wrapper"] > a{
+	color: #9fa2a3;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+h1{
+	position: relative;
+}
+h1 > i.material-icons{
+    font-size: 181px;
+    position: absolute;
+    top: 32px;
+    left: 310px;
+    color: #E4E4E3;
+}
+
+[data-role="request_report_wrapper"] > a:hover{
+	text-decoration: underline;
+}
+[data-role="request_report_wrapper"] > i{
+    vertical-align: text-bottom;
+    margin-top: 17px;
+    font-size: 18px;
+    color: #9fa2a3;
+}
+[data-role="review_rating"]{
+    margin-right: 6px;
+    color: grey;
+}
+
+
+
+/*
+ end the brading
+*/

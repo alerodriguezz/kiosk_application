@@ -1,0 +1,54 @@
+{
+	"Comment": "Basic step function process to Validate IP and cellphone",
+	"StartAt": "Validate",
+	"States": {
+		"Validate": {
+			"Type": "Task",
+			"Resource": "${validate}",
+			"Next": "Parallel"
+		},
+		"Parallel": {
+			"Type": "Parallel",
+			"Branches": [{
+					"StartAt": "Tag",
+					"States": {
+						"Tag": {
+							"Type": "Task",
+							"Resource": "${tag}",
+							"End": true
+						}
+					}
+				},{
+					"StartAt": "Sentiment",
+					"States": {
+						"Sentiment": {
+							"Type": "Task",
+							"Resource": "${sentiment}",
+							"End": true
+						}
+					}
+				}
+			],
+			"Next": "Publish"
+		},
+		"Publish": {
+			"Type": "Task",
+			"Resource": "${publish}",
+			"Next": "CreatePreSignedUrl"
+		},
+		"CreatePreSignedUrl": {
+			"Type": "Task",
+			"Resource": "${presigned}",
+			"Next": "SendText"
+		},
+		"SendText": {
+			"Type": "Task",
+			"Resource": "arn:aws:states:::sns:publish",
+			"Parameters": {
+				"Message.$": "$.message_str",
+				"PhoneNumber.$": "$$.Execution.Input.cellphone_str"
+			},
+			"End": true
+		}
+	}
+}

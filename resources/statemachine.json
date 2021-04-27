@@ -1,0 +1,64 @@
+{
+	"Comment": "Data will be validated, if it fails it will send a failure message. If the data is valid it will be added to the data and a success message will be sent",
+	"StartAt": "Validate",
+	"States": {
+		"Validate": {
+			"Type": "Task",
+			"Resource": "FMI1",
+			"Catch": [{
+				"ErrorEquals": ["ValidationException"],
+				"Next": "AlertValidationFailure",
+				"ResultPath": null
+			}, {
+				"ErrorEquals": ["States.ALL"],
+				"Next": "CatchAllError"
+			}],
+			"Next": "Add",
+			"ResultPath": null
+		},
+		"AlertValidationFailure": {
+			"Type": "Task",
+			"Resource": "arn:aws:states:::sns:publish",
+			"Parameters": {
+				"Message": "The data you reported failed validation and was not added.",
+				"PhoneNumber.$": "$.reportingPhoneNumber"
+			},
+			"End": true
+		},
+		"CatchAllError": {
+			"Type": "Fail",
+			"Cause": "Something unknown went wrong"
+		},
+		"Add": {
+			"Type": "Task",
+			"Resource": "FMI2",
+			"Next": "ConfirmationRequiredChoice",
+			"ResultPath": null
+		},
+		"ConfirmationRequiredChoice": {
+			"Type": "Choice",
+			"Choices": [{
+				"Variable": "$.confirmationRequired",
+				"BooleanEquals": true,
+				"Next": "AlertAddDataSuccess"
+			}, {
+				"Variable": "$.confirmationRequired",
+				"BooleanEquals": false,
+				"Next": "NoAlertAddDataSuccessState"
+			}],
+			"Default": "CatchAllError"
+		},
+		"AlertAddDataSuccess": {
+			"Type": "Task",
+			"Resource": "arn:aws:states:::sns:publish",
+			"Parameters": {
+				"Message": "The data you reported has been added!",
+				"PhoneNumber.$": "$.reportingPhoneNumber"
+			},
+			"End": true
+		},
+		"NoAlertAddDataSuccessState": {
+			"Type": "Succeed"
+		}
+	}
+}

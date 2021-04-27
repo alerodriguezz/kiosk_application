@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+  		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Sample Website</title>
+		<link rel="stylesheet" href="reset.css" />
+		<link rel="stylesheet" href="core.css" />
+		<link rel="stylesheet" href="main.css" />
+		<link rel="stylesheet" href="search.css" />
+	</head>
+	<body>
+		<section data-role="screen_backdrop">
+			<main>
+				<div class="toast" data-showing="not_showing" data-role="problem_message"></div>
+				<header>
+<!-- 					<section data-role="side_branding">
+						<svg>
+							<text y="75" x="95">this is svg @wip</text>
+						</svg>
+					</section> -->
+					<section>
+						<h1>CALLBACK PAGE RICK TODO</h1>
+						<h2></h2>
+		<!-- 				<ol>
+							<li>Find out the average rating of a product.</li>
+							<li>Get all the reviews for the product.</li>
+							<li>Request a report (admin only).</li>
+						</ol> -->
+					</section>
+				</header>
+
+				<section data-role="results_outer_wrapper">
+					This is the results outer wrapper to be replaced
+				</section>
+
+				<section data-role="request_report_wrapper">
+					<span class="button" data-action="request_report">Request a report</span>
+					<hr >
+					<a href="javascript:void(0);">Go to the login area</a>
+				</section>
+				<footer>
+					TO DO FOOTER
+				</footer>
+			</main>
+		</section> <!-- end of screen backdrop -->
+		<script src="jquery.js"></script>
+		<!-- <script src="config.js"></script> -->
+		<script>
+		
+		//eyJraWQiOiJiSml6M2lQWlZxaitQZUZvUHFCdDkwSXJOR210Rk94Z05DUWdBbGhBc2tzPSIsImFsZyI6IlJTMjU2In0
+
+			(function init(){
+				if(!location.hash){
+					alert("Looks like something went wrong");
+					return;
+				}else{
+					if(!window.localStorage){
+						alert("You do not have localstorage enabled, check kiosk settings");
+						return;
+					}
+					// debugger;
+					var id_token_str =  window.location.hash.split("&access_token=")[0];
+					var bearer_str = id_token_str.replace("#id_token=", "");
+					window.localStorage.setItem("bearer_str", bearer_str);
+					window.location = location.origin + "/index.html";
+				}
+			})();
+
+// "#id_token=eyJraWQiOiJiSml6M2lQWlZxaitQZUZvUHFCdDkwSXJOR210Rk94Z05DUWdBbGhBc2tzPSIsImFsZyI6IlJTMjU2In0.eyJhdF9oYXNoIjoiR1FpMEtEdFB0dHB1SHN0dl9NY3ZFUSIsInN1YiI6IjIzNWY3OTIxLTBhOWItNGZjNi05NzY4LTA4MmNiNjIxMDBhZCIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtd2VzdC0yLmFtYXpvbmF3cy5jb21cL3VzLXdlc3QtMl9BSlZmakFBWXUiLCJwaG9uZV9udW1iZXJfdmVyaWZpZWQiOnRydWUsImNvZ25pdG86dXNlcm5hbWUiOiJyaWNreSIsImF1ZCI6IjJhMHAzaDhvbWd1YTIxMzUwbzRsZTVzZTN1IiwidG9rZW5fdXNlIjoiaWQiLCJhdXRoX3RpbWUiOjE1OTA2ODU5NjksInBob25lX251bWJlciI6IisxNDE1MzU5Nzk5MyIsImV4cCI6MTU5MDY4OTU2OSwiaWF0IjoxNTkwNjg1OTY5LCJlbWFpbCI6InJpY2tAZnVsbHN0YWNrLmxpZmUifQ.nHRf-zdEfhgBzeJuRaMOnTgXB07kS2gYG7MR2I-Na70Fj1FrxSX7EMzHCHdFutV0tOK92zSzzwmSKsy-BDhUicQouCp1SlkztFGZgVT2UfWuaPhOi2KSYaiBS8DkuzwGROZztNhWGu1SeGF3geuLeBGuQNegppTrITa_CvmUbM05CznJE8j0UGDnRlxPelVx9bNuBqom_tlDqzs8VcHU7uW_s4qELjhTIxUxSJk4PttJoaS2c8mvPpdVpEAzngU6jF2UntjbrnG0XS03BYRG78mVTIQLTU0SvIzo9SIw4mQS3e1OxGOTvN1xgl3TIsq4VZyvkuH3vyjGs8nOidXO4Q&access_token=eyJraWQiOiJxeUt0WVg1TmwrRkhQNHFQU3RsN0s1c3JucFdYQ3ppbzR3b1hBODNaU05ZPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiIyMzVmNzkyMS0wYTliLTRmYzYtOTc2OC0wODJjYjYyMTAwYWQiLCJ0b2tlbl91c2UiOiJhY2Nlc3MiLCJzY29wZSI6Im9wZW5pZCBwcm9maWxlIiwiYXV0aF90aW1lIjoxNTkwNjg1OTY5LCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtd2VzdC0yLmFtYXpvbmF3cy5jb21cL3VzLXdlc3QtMl9BSlZmakFBWXUiLCJleHAiOjE1OTA2ODk1NjksImlhdCI6MTU5MDY4NTk2OSwidmVyc2lvbiI6MiwianRpIjoiMDE5NTIxMTYtOTQ2MC00ZmIyLWExYTAtZGY3OGFkOGEzZWFjIiwiY2xpZW50X2lkIjoiMmEwcDNoOG9tZ3VhMjEzNTBvNGxlNXNlM3UiLCJ1c2VybmFtZSI6InJpY2t5In0.Bz9GZSn6u7JmmCGfBAzaxbkjrwlZFuMm8Eu6nsQfxU2pWYclczUXKFsZbvHHDqkTsjK8lAdMDMDWtTOV-WK64oe5odGcHkhtRUH-zVCtpLW99xqtUcpfV5qmzGCq9F-P18K6rNp-TH6pvSzYnt4UyBagxN_CuwhMKxjW_0utFxQaqfEwdXo_oMmlFuUv_HUmexECpDZnjR2JiHXLM8eq16YTR3GHrub7C-ucYH2vQtZdpwBgt1CxulK9MbhApW0lzodgUtzSkl-YAns1t06POMnpVaMmoBuA7tCJcRVOw6E1W0MVSg8UqE4YYhjkw3oh56lBGEB_BOGy_kOFrV1DFg&expires_in=3600&token_type=Bearer"
+		</script>
+<!-- 		<script src="main.js"></script>
+		<script src="products.js"></script>
+		<script src="flex_search.js"></script>
+		<script src="search.js"></script> -->
+
+	</body>
+</html>
